@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Django Rate Limiter</title>
+
+    <link rel="stylesheet"
+          href="{% static 'limiter/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Django Rate Limiter</h1>
+
+            <p class="description">
+                Test a simple SQLite based API rate limiter.
+            </p>
+
+            <div class="limit-box">
+
+                <div>
+                    <span class="label">Limit</span>
+                    <span class="value">5 requests</span>
+                </div>
+
+                <div>
+                    <span class="label">Window</span>
+                    <span class="value">60 seconds</span>
+                </div>
+
+            </div>
+
+            <button id="sendRequest">
+                Send API Request
+            </button>
+
+            <div class="status-box">
+
+                <p>
+                    Status:
+                    <span id="status">Waiting...</span>
+                </p>
+
+                <p>
+                    Remaining:
+                    <span id="remaining">5</span>
+                </p>
+
+                <p id="retryContainer" class="hidden">
+                    Retry after:
+                    <span id="retryAfter">0</span> seconds
+                </p>
+
+            </div>
+
+            <div id="responseBox" class="response-box">
+                Click the button to send a request.
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'limiter/script.js' %}"></script>
+
+</body>
+
+</html>
